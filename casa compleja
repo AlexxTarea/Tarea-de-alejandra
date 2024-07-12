@@ -1,0 +1,208 @@
+#VRML V2.0 utf8
+
+# Escenario complejo: Casa de campo con prado, camino, jardín y bosque
+
+# Transformación principal del escenario
+DEF Escenario Transform {
+    translation 0 0 0
+    
+    # Prado verde y ondulado
+    Shape {
+        appearance Appearance {
+            texture ImageTexture {
+                url "grass_texture.jpg"
+            }
+        }
+        geometry Plane {
+            size 100 100  # Tamaño del prado
+        }
+    }
+    
+    # Casa de campo
+    DEF Casa Transform {
+        translation 0 0 20  # Posición de la casa en el prado
+        children [
+            Shape {
+                appearance Appearance {
+                    texture ImageTexture {
+                        url "cottage_texture.jpg"
+                    }
+                }
+                geometry Box {
+                    size 12 8 10  # Tamaño de la casa
+                }
+            }
+            
+            # Techo de la casa
+            Shape {
+                appearance Appearance {
+                    texture ImageTexture {
+                        url "roof_texture.jpg"
+                    }
+                }
+                geometry Pyramid {
+                    bottomRadius 6
+                    height 4
+                }
+                translation 0 4.5 0  # Posición del techo sobre la casa
+            }
+            
+            # Puerta de la casa
+            DEF Puerta Transform {
+                translation 0 -3.5 6  # Posición de la puerta en la casa
+                children [
+                    Shape {
+                        appearance Appearance {
+                            texture ImageTexture {
+                                url "door_texture.jpg"
+                            }
+                        }
+                        geometry Box {
+                            size 2.5 5 0.2
+                        }
+                    }
+                ]
+            }
+            
+            # Ventana de la casa
+            DEF Ventana Transform {
+                translation -5 0 8  # Posición de la ventana en la casa
+                children [
+                    Shape {
+                        appearance Appearance {
+                            texture ImageTexture {
+                                url "window_texture.jpg"
+                            }
+                        }
+                        geometry Box {
+                            size 2 2 0.2
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    
+    # Camino de piedra
+    DEF Camino Transform {
+        translation -15 0 -10  # Posición del inicio del camino
+        rotation 0 1 0 1.2  # Rotación del camino para hacerlo curvado
+        children [
+            Shape {
+                appearance Appearance {
+                    texture ImageTexture {
+                        url "stone_path_texture.jpg"
+                    }
+                }
+                geometry Cylinder {
+                    radius 0.3
+                    height 0.1
+                }
+            }
+        ]
+    }
+    
+    # Jardín modesto pero bien cuidado alrededor de la casa
+    DEF Jardin Transform {
+        translation 0 0 25  # Posición del jardín alrededor de la casa
+        children [
+            Shape {
+                appearance Appearance {
+                    texture ImageTexture {
+                        url "garden_texture.jpg"
+                    }
+                }
+                geometry Box {
+                    size 20 0.1 20  # Tamaño del jardín
+                }
+            }
+        ]
+    }
+    
+    # Bosque de árboles altos y frondosos en el fondo
+    DEF Bosque Transform {
+        translation 50 0 -50  # Posición del bosque en el fondo
+        children [
+            DEF Arbol1 Transform {
+                translation -5 0 0  # Posición del primer árbol
+                children [
+                    Shape {
+                        appearance Appearance {
+                            texture ImageTexture {
+                                url "tree_texture.jpg"
+                            }
+                        }
+                        geometry Cylinder {
+                            radius 1
+                            height 8
+                        }
+                    }
+                ]
+            }
+            DEF Arbol2 Transform {
+                translation 5 0 0  # Posición del segundo árbol
+                children [
+                    Shape {
+                        appearance Appearance {
+                            texture ImageTexture {
+                                url "tree_texture.jpg"
+                            }
+                        }
+                        geometry Cylinder {
+                            radius 1
+                            height 7
+                        }
+                    }
+                ]
+            }
+            DEF Arbol3 Transform {
+                translation 0 0 -5  # Posición del tercer árbol
+                children [
+                    Shape {
+                        appearance Appearance {
+                            texture ImageTexture {
+                                url "tree_texture.jpg"
+                            }
+                        }
+                        geometry Cylinder {
+                            radius 0.8
+                            height 6
+                        }
+                    }
+                ]
+            }
+            DEF Arbol4 Transform {
+                translation -4 0 -8  # Posición del cuarto árbol
+                children [
+                    Shape {
+                        appearance Appearance {
+                            texture ImageTexture {
+                                url "tree_texture.jpg"
+                            }
+                        }
+                        geometry Cylinder {
+                            radius 0.9
+                            height 7
+                        }
+                    }
+                ]
+            }
+            DEF Arbol5 Transform {
+                translation 3 0 -11  # Posición del quinto árbol
+                children [
+                    Shape {
+                        appearance Appearance {
+                            texture ImageTexture {
+                                url "tree_texture.jpg"
+                            }
+                        }
+                        geometry Cylinder {
+                            radius 1.2
+                            height 8
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
